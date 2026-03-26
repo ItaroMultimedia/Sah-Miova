@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Département SAH'MIOVA</title>
+<link rel="icon" type="image/jpg" href="icon.jpg">
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+
+nav{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:85px;
+padding:15px 60px;
+background:rgba(46,139,87,0.95);
+box-shadow:5px 5px 15px darkgray;
+backdrop-filter:blur(8px);
+z-index:1000;
+}
+
+.logo{
+width:60px;
+border-radius:15px;
+}
+
+.menu{
+display:flex;
+gap:40px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:18px;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#00e1ff;
+}
+
+/* HERO */
+
+.hero{
+position:relative;
+height:90vh;
+background:url("fond.JPG") center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+}
+
+.hero h1{
+font-size:65px;
+margin-bottom:15px;
+position:relative;
+z-index:1;
+}
+
+.hero p{
+font-size:26px;
+margin-bottom:30px;
+position:relative;
+z-index:1;
+}
+
+.hero button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,seagreen,#3cb371);
+color:white;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+z-index:1;
+}
+
+.hero button:hover{
+transform:scale(1.08);
+}
+
+/* ABOUT */
+
+.about{
+padding:80px 40px;
+background:linear-gradient(135deg,#f1f1f1,#e8f5ee);
+}
+
+.about-container{
+max-width:1100px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.about-video{
+flex:1;
+}
+
+.about-video video{
+width:100%;
+border-radius:15px;
+max-width: 450px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.about-text{
+flex:1;
+}
+
+.about-text h2{
+font-size:40px;
+margin-bottom:20px;
+font-family:Georgia;
+}
+
+.about-text p{
+font-size:18px;
+line-height:1.7;
+margin-bottom:15px;
+color:#333;
+text-align: justify;
+hyphens: auto;
+}
+
+/* SERVICES */
+
+.services{
+padding:80px 40px;
+text-align:center;
+background:linear-gradient(135deg,#f1f1f1,#d0e7d8);
+}
+
+.services h2{
+font-size:42px;
+margin-bottom:60px;
+font-family:Georgia;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+height:260px;
+border-radius:15px;
+display:flex;
+align-items:flex-end;
+padding:25px;
+color:white;
+position:relative;
+overflow:hidden;
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+}
+
+.card h3{
+position:relative;
+z-index:2;
+font-size:28px;
+}
+
+.card1{
+background:url("card4.jpg") center/cover;
+}
+
+.card2{
+background:url("card2.jpg") center/cover;
+}
+
+.card3{
+background:url("card3.jpg") center/cover;
+}
+
+.card4{
+background:url("card1.jpg") center/cover;
+}
+
+/* ACTIVITES CAROUSEL */
+
+.portfolio{
+margin: 80px;
+text-align:center;
+background:white;
+}
+
+.portfolio h2{
+font-size:42px;
+margin-bottom:50px;
+font-family:Georgia;
+}
+
+.carousel{
+position:relative;
+width: 100%;
+margin:auto;
+overflow:hidden;
+}
+
+.carousel-container{
+display: flex;
+width: 100%;
+}
+
+.carousel img{
+width: 100%;
+height: 500px;
+object-fit: cover;
+}
+
+.carousel-track{
+display:flex;
+transition:transform 0.5s ease;
+}
+
+.slide{
+min-width:100%;
+position:relative;
+}
+
+.slide img{
+width:100%;
+height:420px;
+object-fit:cover;
+display:block;
+}
+
+.description{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+background:rgba(0,0,0,0.6);
+color:white;
+padding:20px;
+}
+
+.description h3{
+font-family:'Times New Roman',Times,serif;
+font-size:26px;
+margin-bottom:5px;
+}
+
+.description p{
+font-size:15px;
+}
+
+/* CTA */
+
+.cta{
+background:url("image.jpeg") center/cover;
+padding:50px 20px;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.cta::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+}
+
+.cta h2{
+font-size:40px;
+margin-bottom:30px;
+position:relative;
+z-index:1;
+}
+
+.btn-contact{
+padding:16px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,seagreen,white);
+color:#1f1f1f;
+cursor:pointer;
+transition:0.3s;
+position:relative;
+z-index:1;
+}
+
+.btn-contact:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+
+footer{
+background:rgba(46,139,87,0.95);
+color:white;
+text-align:center;
+padding:25px;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<img src="logo.JPG" class="logo">
+
+<div class="menu">
+<a href="#accueil">Accueil</a>
+<a href="#about">À propos</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<section class="hero" id="accueil">
+
+<h1>Département Sah'Miova</h1>
+<p><i>Manomboka aminao ny fiovana</i></p>
+
+<a href="#activites">
+<button>Découvrir nos activités</button>
+</a>
+
+</section>
+
+<!-- A PROPOS -->
+
+<section class="about" id="about">
+
+<div class="about-container">
+
+<div class="about-video">
+<video controls>
+<source src="video.mp4" type="video/mp4">
+Votre navigateur ne supporte pas la vidéo.
+</video>
+</div>
+
+<div class="about-text">
+
+<h2>À propos de nous</h2>
+<ul>
+<li><p><b>Chef de département :</b> ANTSIVANAMPOINA Mirana M2</p></li>
+
+<li><p><b>Adjoint :</b> RANDRIAMIHAJA Ambinintsoa M1</p></li>
+</ul>
+
+<p>
+Le département Sah'Miova œuvre pour promouvoir le changement positif à travers différentes actions sociales, formations et campagnes de sensibilisation.
+</p>
+
+<p>
+Notre mission est d'accompagner les communautés, développer les compétences et inspirer les jeunes à devenir des acteurs du changement.
+</p>
+
+<p>
+À travers nos projets et événements, nous créons des espaces d'échange, d'apprentissage et d'engagement pour construire un avenir meilleur.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+<h2>NOS SERVICES</h2>
+
+<div class="cards">
+
+<div class="card card1">
+<h3>Service Communication</h3>
+</div>
+
+<div class="card card2">
+<h3>Service Création</h3>
+</div>
+
+<div class="card card3">
+<h3>Service Technique</h3>
+</div>
+
+<div class="card card4">
+<h3>Administration & Logistique</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- ACTIVITES -->
+
+<section class="portfolio" id="activites">
+
+<h2>NOS ACTIVITÉS</h2>
+
+<div class="carousel">
+
+<button class="carousel-btn prev">&#10094;</button>
+
+<div class="carousel-track">
+
+<div class="slide">
+<img src="img6.jpg">
+<div class="description">
+<h3>Formation</h3>
+<p><i>Apprendre, grandir, et devenir acteur du changement.</i></p>
+</div>
+</div>
+
+<div class="slide">
+<img src="img2.jpg">
+<div class="description">
+<h3>Action Sociale</h3>
+<p><i>Agir pour soutenir et transformer des vies.</i></p>
+</div>
+</div>
+
+<div class="slide">
+<img src="img3.jpg">
+<div class="description">
+<h3>Reboisement</h3>
+<p><i>Planter un arbre aujourd'hui, c'est offrir un souffle de vie à demain.</i></p>
+</div>
+</div>
+
+<div class="slide">
+<img src="img4.jpg">
+<div class="description">
+<h3>Animation</h3>
+<p><i>À travers l'animation, apprendre devient un plaisir partagé.</i></p>
+</div>
+</div>
+
+<div class="slide">
+<img src="img5.jpg">
+<div class="description">
+<h3>Sensibilisation</h3>
+<p><i>Sensibiliser, c'est éveiller les consciences pour protéger ce qui nous unit.</i></p>
+</div>
+</div>
+
+<div class="slide">
+<img src="img1.jpg">
+</div>
+</div>
+
+</div>
+
+<button class="carousel-btn next">&#10095;</button>
+
+</div>
+
+</section>
+
+<section class="cta" id="contact">
+
+<h2>Prêt à travailler avec nous?</h2>
+
+<a href="mailto:departementsahmiova@gmail.com?subject=Demande%20d'information&body=Bonjour,%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20activités." class="btn-contact">
+Contactez-nous
+</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 SAH'MIOVA -- Tous droits réservés</p>
+
+</footer>
+
+<script>
+
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".slide");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+let index = 0;
+
+function updateCarousel(){
+track.style.transform = "translateX(-"+index*100+"%)";
+}
+
+next.onclick = () =>{
+index++;
+if(index >= slides.length){
+index = 0;
+}
+updateCarousel();
+}
+
+prev.onclick = () =>{
+index--;
+if(index < 0){
+index = slides.length-1;
+}
+updateCarousel();
+}
+
+setInterval(()=>{
+index++;
+if(index >= slides.length){
+index = 0;
+}
+updateCarousel();
+},4000);
+
+</script>
+
+</body>
+</html>
